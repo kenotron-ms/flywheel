@@ -1,0 +1,67 @@
+bundle:
+  name: flywheel-methodology-behavior
+  version: 0.1.0
+  description: |
+    Outcome-driven development methodology with evidence loops, Theory of Success
+    planning, and NFR-aware task design.
+
+    Provides 4 agents:
+    - brainstormer: Design refinement facilitation
+    - planner: Task plans with Theory of Success + NFR scan
+    - implementer: Builds + proves with evidence
+    - verifier: Evaluates evidence against Theory of Success
+
+    Provides 4 interactive modes:
+    - brainstorm: Refine idea into design with overall Theory of Success
+    - plan: Create task plan with Theory of Success + NFR per task
+    - execute: Convergence loops — implementer proves, verifier evaluates
+    - cleanup: Acceptance gate, cleanup, commit/push/PR
+
+    Core principles:
+    - Theory of Success over tests (evidence beats assertions)
+    - Outcome over activity (prove, don't narrate)
+    - Architect mindset in the plan (NFR scan per task)
+    - Goldilocks verification (calibrated proof effort)
+
+    Compose onto your bundle for the Flywheel methodology.
+
+# Explicit dependency on the modes behavior for namespace resolution
+# NOTE: Include the behavior, NOT the full bundle — the full bundle transitively
+# includes foundation, which overrides session.orchestrator to loop-streaming.
+includes:
+  - bundle: git+https://github.com/microsoft/amplifier-bundle-modes@main#subdirectory=behaviors/modes.yaml
+
+# Mode hook to discover flywheel modes (brainstorm, plan, execute, cleanup)
+hooks:
+  - module: hooks-mode
+    source: git+https://github.com/microsoft/amplifier-bundle-modes@main#subdirectory=modules/hooks-mode
+    config:
+      search_paths:
+        - "@flywheel:modes"
+
+# Mode tool for programmatic mode transitions (agents can request mode changes)
+# Skills tool for discoverable methodology knowledge
+tools:
+  - module: tool-mode
+    source: git+https://github.com/microsoft/amplifier-bundle-modes@main#subdirectory=modules/tool-mode
+    config:
+      gate_policy: "warn"
+  - module: tool-skills
+    source: git+https://github.com/microsoft/amplifier-module-tool-skills@main
+    config:
+      skills:
+        - "@flywheel:skills"
+
+agents:
+  include:
+    - flywheel:brainstormer
+    - flywheel:planner
+    - flywheel:implementer
+    - flywheel:verifier
+
+context:
+  include:
+    - flywheel:context/philosophy.md
+    - flywheel:context/instructions.md
+    - flywheel:context/using-flywheel.md
+    - modes:context/modes-instructions.md
