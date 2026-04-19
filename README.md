@@ -16,17 +16,30 @@ includes:
 ```
 
 Then use the flywheel modes:
-- `/brainstorm` — Design the thing
-- `/plan` — Break into tasks with Theory of Success
-- `/execute` — Build + prove each task
-- `/cleanup` — Acceptance gate + ship it
+- `/flywheel-design` — Design the thing
+- `/flywheel-plan` — Break into tasks with Theory of Success
+- `/flywheel-execute` — Build + prove each task
+- `/flywheel-ship` — Acceptance gate + ship it
 
 ## Quick Start — Claude Code
 
-Copy `claude-code/CLAUDE.md` into your project root (or `~/.claude/CLAUDE.md` for global use).
-Copy `claude-code/skills/` into your project's `.claude/skills/` directory.
+**Install to current project:**
+```bash
+npx flywheel-claude-code
+```
 
-The skills will guide you through the flywheel methodology without Amplifier.
+**Install globally (all projects):**
+```bash
+npx flywheel-claude-code --global
+```
+
+Then use the flywheel skills in Claude Code:
+- `/flywheel-brainstorm` — Design phase, define Theory of Success
+- `/flywheel-plan` — Planning with Theory of Success per task, no TDD
+- `/flywheel-execute` — Implement → prove → verify loop
+- `/flywheel-cleanup` — Acceptance gate → cleanup → commit
+
+> Manual install: copy `claude-code/skills/*.md` into your project's `.claude/skills/` directory.
 
 ## The 4 Phases
 
@@ -37,7 +50,7 @@ The skills will guide you through the flywheel methodology without Amplifier.
 | **Execute** | Build each task. Run the proof. Return evidence. Verify with Goldilocks rubric. | Proven implementation |
 | **Cleanup** | Acceptance gate (system-level proof). Then cleanup + commit. | Shipped work |
 
-Forward progression is a ratchet (brainstorm → plan → execute → cleanup).
+Forward progression is a ratchet (flywheel-design → flywheel-plan → flywheel-execute → flywheel-ship).
 Backward routing is free: **RETRY** (re-run task), **REPLAN** (fix the plan), **RETHINK** (fix the design).
 
 ## Why flywheel?

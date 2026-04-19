@@ -38,17 +38,17 @@
     2. If a mode applies, tell the user which mode and why.
     3. If the user hasn't activated a mode and one clearly applies, say so.
     4. If there is even a 1% chance a mode applies, suggest it. Let the user decide.
-    5. **When the user consents** (says "yes", "go ahead", "let's brainstorm", uses `/brainstorm`, `/plan`, etc.), **activate the mode immediately** using `mode(operation="set", name="<mode>")`. Do NOT just describe the mode conversationally — actually call the mode tool so its tool policies and guidance are enforced. A slash command like `/brainstorm` is implicit consent — activate immediately, no further confirmation needed.
+    5. **When the user consents** (says "yes", "go ahead", "let's brainstorm", uses `/flywheel-design`, `/flywheel-plan`, etc.), **activate the mode immediately** using `mode(operation="set", name="<mode>")`. Do NOT just describe the mode conversationally — actually call the mode tool so its tool policies and guidance are enforced. A slash command like `/flywheel-design` is implicit consent — activate immediately, no further confirmation needed.
 
     This is not optional. This is not a suggestion.
 
     | User Says | You Recommend | Why |
     |-----------|---------------|-----|
-    | "Build X", "Add feature Y", new work | `/brainstorm` | Design before code |
-    | Design exists, ready to plan | `/plan` | Plan with Theory of Success before implementation |
-    | Plan exists, ready to build | `/execute` | Convergence loops with evidence |
-    | All tasks verified, ready to ship | `/cleanup` | Acceptance gate before completion |
-    | Full feature, start to finish | `/brainstorm` → full pipeline | Step through all four modes |
+    | "Build X", "Add feature Y", new work | `/flywheel-design` | Design before code |
+    | Design exists, ready to plan | `/flywheel-plan` | Plan with Theory of Success before implementation |
+    | Plan exists, ready to build | `/flywheel-execute` | Convergence loops with evidence |
+    | All tasks verified, ready to ship | `/flywheel-ship` | Acceptance gate before completion |
+    | Full feature, start to finish | `/flywheel-design` → full pipeline | Step through all four modes |
     </STANDING-ORDER>
 
     ---
@@ -58,7 +58,7 @@
     Flywheel uses four modes in sequence. Forward progression is deterministic (always left to right). Backward routing is free (any failure escalates to the right level).
 
     ```
-    brainstorm → plan → execute → cleanup → done
+    flywheel-design → flywheel-plan → flywheel-execute → flywheel-ship → done
          ↑           ↑      ↑
          └───────────┴──────┘
            RETRY / REPLAN / RETHINK
@@ -96,14 +96,14 @@
 
     | Task Type | Recommended Approach |
     |-----------|---------------------|
-    | New feature (multi-file) | `/brainstorm` → `/plan` → `/execute` → `/cleanup` |
-    | Bug fix | `/brainstorm` (if root cause unclear) → `/plan` → `/execute` → `/cleanup` |
-    | Small change (< 20 lines) | Make the change, verify with evidence, `/cleanup` |
-    | Refactoring | `/brainstorm` (if scope unclear) → `/plan` → `/execute` → `/cleanup` |
+    | New feature (multi-file) | `/flywheel-design` → `/flywheel-plan` → `/flywheel-execute` → `/flywheel-ship` |
+    | Bug fix | `/flywheel-design` (if root cause unclear) → `/flywheel-plan` → `/flywheel-execute` → `/flywheel-ship` |
+    | Small change (< 20 lines) | Make the change, verify with evidence, `/flywheel-ship` |
+    | Refactoring | `/flywheel-design` (if scope unclear) → `/flywheel-plan` → `/flywheel-execute` → `/flywheel-ship` |
     | Documentation only | No mode needed |
     | Exploration / investigation | No mode needed |
 
-    Don't suggest `/brainstorm` for a typo fix. Don't skip `/plan` for a real feature. Use judgment on scale, but when in doubt, suggest the mode.
+    Don't suggest `/flywheel-design` for a typo fix. Don't skip `/flywheel-plan` for a real feature. Use judgment on scale, but when in doubt, suggest the mode.
 
     ---
 

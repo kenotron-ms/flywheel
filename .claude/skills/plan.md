@@ -1,6 +1,6 @@
 ---
     name: flywheel-plan
-    description: Use when creating an implementation plan — Theory of Success per task, flywheel-level detail, NO TDD. Triggers include "plan", "create tasks", "break this down", "implementation plan", "write the tasks".
+    description: Use when creating an implementation plan — Theory of Success per task, superpowers-level detail, NO TDD. Triggers include "plan", "create tasks", "break this down", "implementation plan", "write the tasks".
     disable-model-invocation: true
     ---
 
@@ -8,7 +8,7 @@
 
     ## Your Role
 
-    Create an implementation plan where every task has a Theory of Success — an observable outcome with a specific proof action. You produce flywheel-level detail PLUS evidence-based verification per task.
+    Create an implementation plan where every task has a Theory of Success — an observable outcome with a specific proof action. You produce superpowers-level detail PLUS evidence-based verification per task.
 
     ## Task Format (Required Structure)
 

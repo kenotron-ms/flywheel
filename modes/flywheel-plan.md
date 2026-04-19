@@ -1,8 +1,8 @@
 ---
     mode:
-      name: plan
-      description: Create task plan with Theory of Success and NFR scan per task - superpowers-level detail, evidence-driven verification
-      shortcut: plan
+      name: flywheel-plan
+      description: Create task plan with Theory of Success and NFR scan per task - flywheel-level detail, evidence-driven verification
+      shortcut: flywheel-plan
 
       tools:
         safe:
@@ -21,11 +21,11 @@
           - mode
 
       default_action: block
-      allowed_transitions: [execute, brainstorm]
+      allowed_transitions: [flywheel-execute, flywheel-design]
       allow_clear: false
     ---
 
-    PLAN MODE: You orchestrate plan creation. The planner agent writes the plan.
+    FLYWHEEL-PLAN MODE: You orchestrate plan creation. The planner agent writes the plan.
 
     <CRITICAL>
     THE HYBRID PATTERN: You handle the CONVERSATION. Agents handle the ARTIFACTS.
@@ -43,7 +43,7 @@
     NO TDD IN PLANS. Plans use Theory of Success format, NOT TDD cycles.
 
     Every task has three parts:
-    1. **What to build** — superpowers-level detail (file paths, function signatures, naming)
+    1. **What to build** — flywheel-level detail (file paths, function signatures, naming)
     2. **Theory of Success** — what done looks like + specific proof action
     3. **NFR scan** — which concerns apply + what "good enough" means
 
@@ -55,9 +55,9 @@
 
     ## Prerequisites
 
-    A design document should exist from `/brainstorm`. If not, tell the user:
+    A design document should exist from `/flywheel-design`. If not, tell the user:
     ```
-    No design document found. Use /brainstorm first to create one, or point me to an existing design.
+    No design document found. Use /flywheel-design first to create one, or point me to an existing design.
     ```
 
     ## The Process
@@ -110,7 +110,7 @@
     6. User preferences: [any specific requests about task granularity, organization, or approach]
 
     CRITICAL: Use Theory of Success format per task, NOT TDD. Each task needs:
-    - What to build (superpowers-level detail)
+    - What to build (flywheel-level detail)
     - Theory of Success (observable outcome + specific proof action)
     - NFR scan (relevant concerns + "good enough" definition)
 
@@ -135,7 +135,7 @@
 
     What to build:
     - [specific implementation steps with file paths, function signatures, etc.]
-    - [same level of detail as superpowers plans — exact paths, complete code, naming]
+    - [same level of detail as flywheel plans — exact paths, complete code, naming]
 
     Theory of Success: [what done looks like to an observer].
     Proof: [specific runnable action — curl, screenshot, query, log grep — that proves it]
@@ -159,7 +159,7 @@
     ```
     Plan saved to `docs/plans/YYYY-MM-DD-<feature>-plan.md`.
 
-    Ready to execute? Use /execute for convergence-loop execution — each task gets an implementer + verifier cycle.
+    Ready to execute? Use /flywheel-execute for convergence-loop execution — each task gets an implementer + verifier cycle.
     ```
 
     ## Anti-Rationalization Table
@@ -180,11 +180,11 @@
     - Combine multiple actions into one step
     - Use TDD task structure (NO RED/GREEN/REFACTOR)
     - Omit file paths or use relative descriptions
-    - Write implementation code (that's for /execute)
+    - Write implementation code (that's for /flywheel-execute)
     - Leave ANY decision to the implementer's judgment
     - Write the plan document yourself (MUST delegate)
     - Omit Theory of Success or NFR scan from any task
-    - Run git push, git merge, gh pr create, or any deployment/release commands — these belong exclusively to /cleanup mode
+    - Run git push, git merge, gh pr create, or any deployment/release commands — these belong exclusively to /flywheel-ship mode
 
     ## Remember
     - Exact file paths always
@@ -197,19 +197,19 @@
     ## Announcement
 
     When entering this mode, announce:
-    "I'm entering plan mode. I'll review the design, discuss the task breakdown with you, then delegate to the flywheel:planner agent to create a task plan with Theory of Success and NFR scan per task. No TDD — evidence-driven verification throughout."
+    "I'm entering flywheel-plan mode. I'll review the design, discuss the task breakdown with you, then delegate to the flywheel:planner agent to create a task plan with Theory of Success and NFR scan per task. No TDD — evidence-driven verification throughout."
 
     ## Transitions
 
     **Done when:** Plan saved to `docs/plans/`
 
-    **Golden path:** `/execute`
-    - Tell user: "Plan saved to [path] with [N] tasks. Use `/execute` for convergence-loop execution — each task gets an implementer + verifier cycle."
-    - Use `mode(operation='set', name='execute')` to transition. The first call will be denied (gate policy); call again to confirm.
+    **Golden path:** `/flywheel-execute`
+    - Tell user: "Plan saved to [path] with [N] tasks. Use `/flywheel-execute` for convergence-loop execution — each task gets an implementer + verifier cycle."
+    - Use `mode(operation='set', name='flywheel-execute')` to transition. The first call will be denied (gate policy); call again to confirm.
 
     **Dynamic transitions:**
-    - If design seems incomplete → use `mode(operation='set', name='brainstorm')` because a solid design prevents plan rework
-    - If plan reveals design issues → use `mode(operation='set', name='brainstorm')` because the design needs to be right before tasks are specified
+    - If design seems incomplete → use `mode(operation='set', name='flywheel-design')` because a solid design prevents plan rework
+    - If plan reveals design issues → use `mode(operation='set', name='flywheel-design')` because the design needs to be right before tasks are specified
 
     **Skill connection:** If you load a workflow skill,
     the skill tells you WHAT to do. This mode enforces HOW. They complement each other.

@@ -1,8 +1,8 @@
 ---
     mode:
-      name: cleanup
+      name: flywheel-ship
       description: Acceptance gate and completion - verify the whole system works, clean up, commit with evidence summary
-      shortcut: cleanup
+      shortcut: flywheel-ship
 
       tools:
         safe:
@@ -20,11 +20,11 @@
           - apply_patch
 
       default_action: block
-      allowed_transitions: [execute, plan, brainstorm]
+      allowed_transitions: [flywheel-execute, flywheel-plan, flywheel-design]
       allow_clear: true
     ---
 
-    CLEANUP MODE: Acceptance gate → cleanup → commit → done.
+    FLYWHEEL-SHIP MODE: Acceptance gate → cleanup → commit → done.
 
     **Core principle:** Two steps in sequence. Step 1 cannot be skipped. Step 2 unlocks only after Step 1 passes.
 
@@ -79,9 +79,9 @@
 
     | Classification | Route | When |
     |---------------|-------|------|
-    | **RETRY** | `/execute` | System almost works — specific task needs re-execution |
-    | **REPLAN** | `/plan` | System doesn't deliver because the plan missed something |
-    | **RETHINK** | `/brainstorm` | System doesn't deliver because the idea itself was wrong |
+    | **RETRY** | `/flywheel-execute` | System almost works — specific task needs re-execution |
+    | **REPLAN** | `/flywheel-plan` | System doesn't deliver because the plan missed something |
+    | **RETHINK** | `/flywheel-design` | System doesn't deliver because the idea itself was wrong |
 
     **Do NOT proceed to Step 2 if the gate fails.** Route back first. Come back to cleanup after the issue is resolved.
 
@@ -192,7 +192,7 @@
     ## Announcement
 
     When entering this mode, announce:
-    "I'm entering cleanup mode. Two steps: (1) acceptance gate — does the whole system deliver on the Theory of Success? Cannot skip. (2) Cleanup and commit — only after the gate passes."
+    "I'm entering flywheel-ship mode. Two steps: (1) acceptance gate — does the whole system deliver on the Theory of Success? Cannot skip. (2) Cleanup and commit — only after the gate passes."
 
     ## Transitions
 
@@ -203,10 +203,10 @@
     - Use `mode(operation='clear')` to exit modes.
 
     **Dynamic transitions:**
-    - If acceptance gate fails with RETRY → use `mode(operation='set', name='execute')` because a specific task needs re-execution
-    - If acceptance gate fails with REPLAN → use `mode(operation='set', name='plan')` because the plan missed something
-    - If acceptance gate fails with RETHINK → use `mode(operation='set', name='brainstorm')` because the design needs revision
-    - If user wants more work on this project → use `mode(operation='set', name='brainstorm')` because new work needs the design process
+    - If acceptance gate fails with RETRY → use `mode(operation='set', name='flywheel-execute')` because a specific task needs re-execution
+    - If acceptance gate fails with REPLAN → use `mode(operation='set', name='flywheel-plan')` because the plan missed something
+    - If acceptance gate fails with RETHINK → use `mode(operation='set', name='flywheel-design')` because the design needs revision
+    - If user wants more work on this project → use `mode(operation='set', name='flywheel-design')` because new work needs the design process
 
     **Skill connection:** If you load a workflow skill,
     the skill tells you WHAT to do. This mode enforces HOW. They complement each other.

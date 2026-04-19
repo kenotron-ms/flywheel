@@ -29,6 +29,8 @@
 
     The first burns tokens narrating activity. The second closes the loop with evidence. Token cost should be proportional to results, not effort expended.
 
+    The question is always: **are we manufacturing success, or managing decline?** Activity without evidence is decline dressed up as progress. Loops can close, commits can land, agents can report — and the system still not work. Evidence forces the question of whether the work is actually creating a winning outcome.
+
     **This applies to every agent:**
     - The **implementer** returns PROVEN + evidence, not a story about what it built
     - The **verifier** returns VERIFIED or NEEDS_MORE_PROOF + the specific gap, not a lengthy analysis
@@ -68,7 +70,7 @@
     ## The Flywheel Workflow
 
     ```
-    brainstorm → plan → execute → cleanup → done
+    flywheel-design → flywheel-plan → flywheel-execute → flywheel-ship → done
          ↑           ↑      ↑
          └───────────┴──────┘
            (any failure routes back)
@@ -92,6 +94,7 @@
     - **Writing tests as proof** instead of running the actual system — tests are implementation artifacts, not evidence
     - **Claiming VERIFIED** without reading the evidence — the verifier must evaluate, not rubber-stamp
     - **Routing everything as RETRY** when REPLAN or RETHINK is warranted — misclassification wastes cycles
+    - **Managing decline** — activity without progress. Loops closing, commits landing, agents busy — but the system not actually working. If the feedback loop is longer than the runway, you are already dead.
 
     ## Philosophy in Practice
 

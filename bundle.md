@@ -28,27 +28,27 @@
     ## The Flywheel Workflow
 
     ```
-    /brainstorm  →  Design Document (with overall Theory of Success)
+    /flywheel-design  →  Design Document (with overall Theory of Success)
           |
-    /plan  →  Task Plan (Theory of Success + NFR scan per task)
+    /flywheel-plan  →  Task Plan (Theory of Success + NFR scan per task)
           |
-    /execute  →  Convergence Loops
+    /flywheel-execute  →  Convergence Loops
           |        Per Task:
           |        1. Implementer builds + runs proof action
           |        2. Verifier evaluates evidence against Theory of Success
           |        3. Loop until VERIFIED or escalate (RETRY/REPLAN/RETHINK)
           |
-    /cleanup  →  Acceptance gate → cleanup → commit/push/PR
+    /flywheel-ship  →  Acceptance gate → cleanup → commit/push/PR
     ```
 
     **One track, four modes:**
 
     | Command | Purpose | Next Step |
     |---------|---------|-----------|
-    | `/brainstorm` | Refine idea into design, define overall Theory of Success | `/plan` |
-    | `/plan` | Create task plan with Theory of Success + NFR scan per task | `/execute` |
-    | `/execute` | Convergence loops: implementer proves, verifier evaluates | `/cleanup` |
-    | `/cleanup` | Acceptance gate → cleanup → commit/push/PR | Done |
+    | `/flywheel-design` | Refine idea into design, define overall Theory of Success | `/flywheel-plan` |
+    | `/flywheel-plan` | Create task plan with Theory of Success + NFR scan per task | `/flywheel-execute` |
+    | `/flywheel-execute` | Convergence loops: implementer proves, verifier evaluates | `/flywheel-ship` |
+    | `/flywheel-ship` | Acceptance gate → cleanup → commit/push/PR | Done |
 
     **Backward routing from any failure:**
     - **RETRY** — execution issue, re-run in execute

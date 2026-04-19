@@ -1,0 +1,30 @@
+{
+  "name": "flywheel-claude-code",
+  "version": "0.1.0",
+  "description": "Outcome-driven development methodology for Claude Code",
+  "bin": {
+    "flywheel-claude-code": "./bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "claude-code/",
+    "README.md"
+  ],
+  "keywords": [
+    "claude-code",
+    "anthropic",
+    "claude",
+    "ai",
+    "methodology",
+    "development",
+    "skills"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenotron-ms/flywheel"
+  }
+}

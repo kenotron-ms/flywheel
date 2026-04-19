@@ -12,13 +12,13 @@
 
     ## How to Use
 
-    Start with brainstorm. Progress forward: brainstorm → plan → execute → cleanup.
+    Start with brainstorm. Progress forward: flywheel-design → flywheel-plan → flywheel-execute → flywheel-ship.
     Any failure routes backward: RETRY (re-run task), REPLAN (fix the plan), RETHINK (fix the design).
 
     ## Skills
 
     Load a phase skill for detailed guidance:
-    - `brainstorm.md` — Design phase with Theory of Success emphasis
+    - `flywheel-design.md` — Design phase with Theory of Success emphasis
     - `plan.md` — Planning with Theory of Success per task (NO TDD)
     - `execute.md` — Convergence loop with implementer → verifier pipeline
     - `cleanup.md` — Acceptance gate + cleanup work

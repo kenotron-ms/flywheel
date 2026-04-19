@@ -20,7 +20,7 @@
 
     **Skills:** Use `load_skill()` to discover and load skills. When you load a skill, its content is presented to you — follow it directly.
 
-    **Modes:** Use the `mode` tool or `/mode` commands (e.g., `/brainstorm`, `/plan`, `/execute`, `/cleanup`) to enter the appropriate workflow phase.
+    **Modes:** Use the `mode` tool or `/mode` commands (e.g., `/flywheel-design`, `/flywheel-plan`, `/flywheel-execute`, `/flywheel-ship`) to enter the appropriate workflow phase.
 
     **Delegation:** Use `delegate()` to dispatch work to specialized agents when the workflow requires it:
     - `flywheel:brainstormer` — writes the design document after conversational validation
@@ -62,12 +62,12 @@
 
     | Agent | When to Delegate | What It Returns |
     |-------|-----------------|-----------------| 
-    | `flywheel:brainstormer` | Design doc creation after conversational validation in `/brainstorm` mode | Design document saved to `docs/plans/` |
-    | `flywheel:planner` | Task plan creation after discussing breakdown in `/plan` mode | Plan with Theory of Success + NFR per task |
-    | `flywheel:implementer` | Per-task implementation in `/execute` mode | `PROVEN` + evidence, `PROVEN_WITH_NOTES` + evidence + concern, or `BLOCKED` + why |
-    | `flywheel:verifier` | Per-task evidence evaluation in `/execute` mode | `VERIFIED`, `NEEDS_MORE_PROOF` + gap, `RETRY`, `REPLAN`, or `RETHINK` |
+    | `flywheel:brainstormer` | Design doc creation after conversational validation in `/flywheel-design` mode | Design document saved to `docs/plans/` |
+    | `flywheel:planner` | Task plan creation after discussing breakdown in `/flywheel-plan` mode | Plan with Theory of Success + NFR per task |
+    | `flywheel:implementer` | Per-task implementation in `/flywheel-execute` mode | `PROVEN` + evidence, `PROVEN_WITH_NOTES` + evidence + concern, or `BLOCKED` + why |
+    | `flywheel:verifier` | Per-task evidence evaluation in `/flywheel-execute` mode | `VERIFIED`, `NEEDS_MORE_PROOF` + gap, `RETRY`, `REPLAN`, or `RETHINK` |
 
-    **Key rule:** In `/execute` mode, ALWAYS delegate to implementer first, then verifier. Never skip the verifier. Never implement yourself.
+    **Key rule:** In `/flywheel-execute` mode, ALWAYS delegate to implementer first, then verifier. Never skip the verifier. Never implement yourself.
 
     ## User Instructions
 
