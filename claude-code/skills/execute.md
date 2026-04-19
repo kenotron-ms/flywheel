@@ -1,6 +1,7 @@
 ---
     name: flywheel-execute
     description: Use when executing a plan — convergence loop per task with implementer and verifier roles. Triggers include "execute", "implement the plan", "start building", "run the plan", "let's build it".
+    disable-model-invocation: true
     ---
 
     # Flywheel Execute Phase

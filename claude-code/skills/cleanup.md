@@ -1,6 +1,7 @@
 ---
     name: flywheel-cleanup
     description: Use when all tasks are executed — acceptance gate then cleanup work. Triggers include "cleanup", "finish", "wrap up", "acceptance gate", "are we done", "ship it".
+    disable-model-invocation: true
     ---
 
     # Flywheel Cleanup Phase

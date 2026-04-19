@@ -1,6 +1,7 @@
 ---
     name: flywheel-brainstorm
     description: Use when starting a new feature or design — guides collaborative design with Theory of Success emphasis. Triggers include "brainstorm", "design", "new feature", "let's think about", "what should we build".
+    disable-model-invocation: true
     ---
 
     # Flywheel Brainstorm Phase

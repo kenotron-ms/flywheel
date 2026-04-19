@@ -1,6 +1,7 @@
 ---
     name: flywheel-plan
     description: Use when creating an implementation plan — Theory of Success per task, superpowers-level detail, NO TDD. Triggers include "plan", "create tasks", "break this down", "implementation plan", "write the tasks".
+    disable-model-invocation: true
     ---
 
     # Flywheel Plan Phase
