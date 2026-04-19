@@ -23,7 +23,7 @@
       default_action: block
       allowed_transitions: [flywheel-execute, flywheel-design]
       allow_clear: false
-    ---
+---
 
     FLYWHEEL-PLAN MODE: You orchestrate plan creation. The planner agent writes the plan.
 

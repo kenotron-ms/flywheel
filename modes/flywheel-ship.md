@@ -22,7 +22,7 @@
       default_action: block
       allowed_transitions: [flywheel-execute, flywheel-plan, flywheel-design]
       allow_clear: true
-    ---
+---
 
     FLYWHEEL-SHIP MODE: Acceptance gate → cleanup → commit → done.
 

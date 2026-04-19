@@ -21,7 +21,7 @@
       default_action: block
       allowed_transitions: [flywheel-plan]
       allow_clear: false
-    ---
+---
 
     FLYWHEEL-DESIGN MODE: You facilitate design refinement through collaborative dialogue.
 

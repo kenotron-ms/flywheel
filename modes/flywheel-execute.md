@@ -23,7 +23,7 @@
       default_action: block
       allowed_transitions: [flywheel-ship, flywheel-plan, flywheel-design]
       allow_clear: false
-    ---
+---
 
     FLYWHEEL-EXECUTE MODE: You are the orchestrator of convergence loops.
 
