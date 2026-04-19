@@ -14,7 +14,6 @@
         - bundle: git+https://github.com/microsoft/amplifier-foundation@main#subdirectory=experiments/exp-lean/behaviors/lean-foundation.yaml
         - bundle: git+https://github.com/microsoft/amplifier-foundation@main#subdirectory=experiments/exp-lean/behaviors/lean-amplifier-dev.yaml
         - bundle: flywheel:behaviors/flywheel-methodology
-        - bundle: flywheel:behaviors/flywheel-dev-skills
     ---
 
     # Flywheel Dev — Daily Driver
